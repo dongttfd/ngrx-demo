@@ -5,7 +5,11 @@
   "projects": {
     "ngrx-demo": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@ngrx/schematics:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,7 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              {
+                "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
+              }
             ],
             "scripts": []
           },
@@ -119,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngrx-demo"
+    }
+  },
+  "defaultProject": "ngrx-demo",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
