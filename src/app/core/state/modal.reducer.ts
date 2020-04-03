@@ -1,6 +1,6 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { openModal, closeModal } from './modal.actions';
-import { AlertModel } from '../model/alert.model';
+import { AlertModel } from 'src/app/shared/models/alert.model';
 
 export const FeatureKey = 'modal';
 

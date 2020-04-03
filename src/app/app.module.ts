@@ -8,6 +8,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { reducers, metaReducers } from './core/state';
+import { UserModule } from './user/user.module';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,8 @@ import { reducers, metaReducers } from './core/state';
         !environment.production ? StoreDevtoolsModule.instrument() : [],
 
         SharedModule,
+        UserModule,
+        EffectsModule.forRoot([]),
     ],
     providers: [],
     bootstrap: [AppComponent]

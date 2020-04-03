@@ -5,13 +5,13 @@ import { Observable, Subscription } from 'rxjs';
 import { StateMap } from './core/state';
 import { openModal } from './core/state/modal.actions';
 import { FeatureKey, ModalState } from './core/state/modal.reducer';
-import { AlertComponent } from './shared/alert/alert.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
         private config: NgbModalConfig,
         private modalService: NgbModal
     ) {
-        this.modalState$ = this.store.pipe(select(FeatureKey));
+        this.modalState$ = this.store.select(FeatureKey);
         this.config.backdrop = 'static';
         this.config.keyboard = false;
     }
