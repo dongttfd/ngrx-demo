@@ -1,9 +1,8 @@
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/shared/models/user.model';
 import { loadUsers } from './state/user.actions';
 import { UserState } from './state/user.reducer';
+import { selectUsers } from './state/user.selectors';
 
 @Component({
     selector: 'app-user',
@@ -12,17 +11,13 @@ import { UserState } from './state/user.reducer';
 })
 export class UserComponent implements OnInit {
 
-    users$ = this.store.select('users');
+    users$ = this.store.pipe(select(selectUsers));
 
     constructor(
         private store: Store<UserState>
     ) { }
 
     ngOnInit(): void {
-        this.users$.subscribe(res => {
-            console.log(res);
-        });
-
         this.store.dispatch(loadUsers());
     }
 

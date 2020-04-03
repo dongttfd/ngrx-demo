@@ -1,8 +1,8 @@
-import { Action, createReducer, on, createSelector } from '@ngrx/store';
+import { Action, createReducer, on, createSelector, createFeatureSelector } from '@ngrx/store';
 import { loadUsers, loadUsersSuccess, loadUsersFailure } from './user.actions';
 import { User } from 'src/app/shared/models/user.model';
 
-export const userFeatureKey = 'users';
+export const userFeatureKey = 'userFeature';
 
 export interface UserState {
     users: User[];
