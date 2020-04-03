@@ -2,10 +2,11 @@ import { Component, ChangeDetectionStrategy, OnInit, ViewChild, ElementRef, OnDe
 import { Store, select } from '@ngrx/store';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
-import * as fromRoot from './core/state';
-import * as ModalActions from './core/state/modal.actions';
-import { FeatureKey, State } from './core/state/modal.reducer';
+import { StateMap } from './core/state';
+import { openModal } from './core/state/modal.actions';
+import { FeatureKey, ModalState } from './core/state/modal.reducer';
 import { AlertComponent } from './shared/alert/alert.component';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -14,11 +15,11 @@ import { AlertComponent } from './shared/alert/alert.component';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-    modalState$: Observable<State>;
+    modalState$: Observable<ModalState>;
     subscription = new Subscription();
 
     constructor(
-        private store: Store<fromRoot.State>,
+        private store: Store<StateMap>,
         private config: NgbModalConfig,
         private modalService: NgbModal
     ) {
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     openAlert() {
-        this.store.dispatch(new ModalActions.OpenModal({
+        this.store.dispatch(openModal({
             title: 'Alert !!',
             content: 'This is alert demo !'
         }));

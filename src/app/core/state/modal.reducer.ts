@@ -1,14 +1,15 @@
-import { ModalActions, ModalActionTypes } from './modal.actions';
+import { createReducer, on, Action } from '@ngrx/store';
+import { openModal, closeModal } from './modal.actions';
 import { AlertModel } from '../model/alert.model';
 
 export const FeatureKey = 'modal';
 
-export interface State {
+export interface ModalState {
     isOpened: boolean;
     alertModel: AlertModel;
 }
 
-const initialState: State = {
+const initialState: ModalState = {
     isOpened: false,
     alertModel: {
         title: '',
@@ -16,25 +17,19 @@ const initialState: State = {
     }
 };
 
-export const reducer = (
-    state: State = initialState,
-    action: ModalActions
-): State => {
-    switch (action.type) {
-        case ModalActionTypes.OpenModal:
-            return {
-                ...state,
-                isOpened: true,
-                alertModel: action.alertModal
-            };
+const modalReducer = createReducer(
+    initialState,
+    on(openModal, (state, alertModel) => ({
+        ...state,
+        isOpened: true,
+        alertModel
+    })),
+    on(closeModal, (state) => ({
+        ...state,
+        isOpened: false,
+    })),
+);
 
-        case ModalActionTypes.CloseModal:
-            return {
-                ...state,
-                isOpened: false
-            };
-
-        default:
-            return state;
-    }
-};
+export function reducer(state: ModalState | undefined, action: Action) {
+    return modalReducer(state, action);
+}
