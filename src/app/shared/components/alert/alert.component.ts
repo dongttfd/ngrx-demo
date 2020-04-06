@@ -2,9 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
-import { StateMap } from 'src/app/core/state';
-import { closeModal } from 'src/app/core/state/modal.actions';
-import { FeatureKey, ModalState } from 'src/app/core/state/modal.reducer';
+import { AlertModalStoreState, AlertModalStoreActions, RootStoreState } from 'src/app/store';
 
 @Component({
     selector: 'app-alert',
@@ -13,14 +11,14 @@ import { FeatureKey, ModalState } from 'src/app/core/state/modal.reducer';
 })
 export class AlertComponent implements OnInit, OnDestroy {
 
-    modalState$: Observable<ModalState>;
+    modalState$: Observable<any>;
     subscription = new Subscription();
 
     constructor(
-        private store: Store<StateMap>,
+        private store: Store<RootStoreState.StateMap>,
         private activeModal: NgbActiveModal
     ) {
-        this.modalState$ = this.store.pipe(select(FeatureKey));
+        this.modalState$ = this.store.pipe(select(AlertModalStoreState.modalFeatureKey));
     }
 
     ngOnInit(): void {
@@ -35,7 +33,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     }
 
     closeModal() {
-        this.store.dispatch(closeModal());
+        this.store.dispatch(AlertModalStoreActions.closeModal());
     }
 
     ngOnDestroy() {

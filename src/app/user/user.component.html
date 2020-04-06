@@ -1,0 +1,24 @@
+<h3>User Table</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users$ | async">
+            <th scope="row">{{ user.id + 1 }}</th>
+            <td> {{ user.first_name }} </td>
+            <td> {{ user.last_name }} </td>
+            <td> {{ user.address }} </td>
+            <td> {{ user.email }} </td>
+            <td> {{ user.phone }} </td>
+        </tr>
+    </tbody>
+</table>

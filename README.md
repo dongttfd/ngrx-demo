@@ -1,6 +1,6 @@
 # NgrxDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0 and [@ngrx/schematics](https://ngrx.io/guide/schematics) version 9.0.0 
 
 ## Development server
 
@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module|store|action|reducer|container|effect|entity|feature`.
 
 ## Build
 
@@ -24,4 +24,70 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Folder structure
+
+```
+├── app
+ │ ├── app-routing.module.ts
+ │ ├── app.component.css
+ │ ├── app.component.html
+ │ ├── app.component.ts
+ │ ├── app.module.ts
+ │ │
+ │ ├── core
+ │ ├── shared
+ │ │    ├── shared.module.ts
+ │ │    └── models
+ │ │    │     ├── index.ts
+ │ │    │     ├── alert.model.ts
+ │ │    │     └── user.model.ts
+ │ │    └── services
+ │ │    │     ├── index.ts
+ │ │    │     └── user.service.ts
+ │ │    └── components
+ │ │    │     └── alert
+ │ │    │        ├── alert.component.css
+ │ │    │        ├── alert.component.html
+ │ │    │        ├── alert.component.spec.ts
+ │ │    │        └── alert.component.ts
+ │ ├── feature1
+ │ │     ├── feature1.component.css
+ │ │     ├── feature1.component.html
+ │ │     └── feature1.component.spec.ts
+ │ │     └── feature1.component.ts
+ │ ├── feature2
+ │ │     ├── feature2.component.css
+ │ │     ├── feature2.component.html
+ │ │     └── feature2.component.spec.ts
+ │ │     └── feature2.component.ts
+ │ ├── store
+ │ │    ├── index.ts
+ │ │    ├── root.store.module.ts
+ │ │    ├── root.selectors.ts
+ │ │    ├── root.state.ts
+ │ │    └── {feature1}
+ │ │    |    ├── index.ts
+ │ │    |    ├── {feature1}.actions.ts
+ │ │    |    ├── {feature1}.effects.ts
+ │ │    |    ├── {feature1}.reducer.ts
+ │ │    |    ├── {feature1}.selectors.ts
+ │ │    |    ├── {feature1}.state.ts
+ │ │    |    └── {feature1}.module.ts
+ │ │    └── {feature2}
+ │ │    |    ├── index.ts
+ │ │    |    ├── {feature2}.actions.ts
+ │ │    |    ├── {feature2}.effects.ts
+ │ │    |    ├── {feature2}.reducer.ts
+ │ │    |    ├── {feature2}.selectors.ts
+ │ │    |    ├── {feature2}.state.ts
+ │ │    |    └── {feature2}.module.ts
+ ├── assets
+ ├── environments
+ │ ├── environment.prod.ts
+ │ └── environment.ts
+ ├── index.html
+ ├── main.ts
+ ├── polyfills.ts
+ ├── styles.css
+ ├── test.ts
+```

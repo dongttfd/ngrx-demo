@@ -2,10 +2,8 @@ import { Component, ChangeDetectionStrategy, OnInit, ViewChild, ElementRef, OnDe
 import { Store, select } from '@ngrx/store';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
-import { StateMap } from './core/state';
-import { openModal } from './core/state/modal.actions';
-import { FeatureKey, ModalState } from './core/state/modal.reducer';
-import { AlertComponent } from './shared/alert/alert.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { RootStoreState, AlertModalStoreState, AlertModalStoreActions } from './store';
 
 @Component({
     selector: 'app-root',
@@ -15,15 +13,15 @@ import { AlertComponent } from './shared/alert/alert.component';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-    modalState$: Observable<ModalState>;
+    modalState$: Observable<AlertModalStoreState.AlertModalState>;
     subscription = new Subscription();
 
     constructor(
-        private store: Store<StateMap>,
+        private store: Store<RootStoreState.StateMap>,
         private config: NgbModalConfig,
         private modalService: NgbModal
     ) {
-        this.modalState$ = this.store.pipe(select(FeatureKey));
+        this.modalState$ = this.store.select(AlertModalStoreState.modalFeatureKey);
         this.config.backdrop = 'static';
         this.config.keyboard = false;
     }
@@ -39,7 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     openAlert() {
-        this.store.dispatch(openModal({
+        this.store.dispatch(AlertModalStoreActions.openModal({
             title: 'Alert !!',
             content: 'This is alert demo !'
         }));
