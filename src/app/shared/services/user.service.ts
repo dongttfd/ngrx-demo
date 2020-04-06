@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
-
-interface UserResponse {
-    _meta: any;
-    result: User[];
-}
+import { UserResponse } from '../models';
 
 @Injectable({
     providedIn: 'root'

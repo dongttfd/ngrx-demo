@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { mergeMap, map } from 'rxjs/operators';
-import { UserService } from 'src/app/shared/services/user.service';
 import { loadUsers, loadUsersSuccess } from './user.actions';
+import { UserService } from 'src/app/shared/services';
 
 @Injectable()
 export class UserEffects {
