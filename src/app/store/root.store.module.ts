@@ -18,6 +18,8 @@ import { UserStoreModule } from './user';
             runtimeChecks: {
                 strictStateImmutability: true,
                 strictActionImmutability: true,
+                strictStateSerializability: true,
+                strictActionSerializability: true,
             },
         }),
         EffectsModule.forRoot([]),

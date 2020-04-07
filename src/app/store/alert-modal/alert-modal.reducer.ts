@@ -4,11 +4,13 @@ import { initialState, AlertModalState } from './alert-modal.state';
 
 const reducer = createReducer(
     initialState,
-    on(openModal, (state, alertModel) => ({
+
+    on(openModal, (state, alert) => ({
         ...state,
         isOpened: true,
-        alertModel
+        alert
     })),
+
     on(closeModal, (state) => ({
         ...state,
         isOpened: false,

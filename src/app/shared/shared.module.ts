@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './components/alert/alert.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 @NgModule({
-    declarations: [AlertComponent],
+    declarations: [AlertComponent, ConfirmComponent],
     imports: [
         CommonModule,
         NgbModule,

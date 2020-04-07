@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+.close:not(:disabled):not(.disabled):hover,
+.close:not(:disabled):not(.disabled):focus {
+    outline: 0;
+}
