@@ -4,6 +4,7 @@ import { mergeMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AlertModalStoreActions } from '../store';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -11,9 +12,9 @@ export class RequestInterceptor implements HttpInterceptor {
     constructor(private store: Store) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler) {
-        const token = 'KcD1drjIBAaKUJTI2VCQ_EKVBN4FOl4b98cy';
+
         request = request.clone({
-            headers: request.headers.set('Authorization', `Bearer ${token}`)
+            headers: request.headers.set('Authorization', `Bearer ${environment.tokenAPI}`)
                 .set('Content-Type', 'application/json;charset=UTF-8')
                 .set('Accept', 'application/json')
         });
