@@ -23,6 +23,19 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 
+## API config
+
+Using test api in [Online REST API for Testing](https://gorest.co.in/)
+
+Add your token to `environment` at `tokenAPI`
+
+```
+export const environment = {
+    ...
+    tokenAPI: <your-token>
+};
+```
+
 ## Folder structure
 
 ```
@@ -34,21 +47,36 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
  │ ├── app.module.ts
  │ │
  │ ├── core
+ │ │    ├── config
+ │ │    │     └── code.ts
+ │ │    └── request.interceptor.ts
+ │ │
  │ ├── shared
  │ │    ├── shared.module.ts
  │ │    └── models
  │ │    │     ├── index.ts
  │ │    │     ├── alert.model.ts
- │ │    │     └── user.model.ts
+ │ │    │     ├── user.response.model.ts
+ │ │    │     ├── user-list.response.model.ts
+ │ │    │     ├── user.model.ts
+ │ │    │     └── ...
  │ │    └── services
  │ │    │     ├── index.ts
- │ │    │     └── user.service.ts
+ │ │    │     ├── user.service.ts
+ │ │    │     └── ...
  │ │    └── components
- │ │    │     └── alert
- │ │    │        ├── alert.component.css
- │ │    │        ├── alert.component.html
- │ │    │        ├── alert.component.spec.ts
- │ │    │        └── alert.component.ts
+ │ │          ├── alert
+ │ │          │   ├── alert.component.css
+ │ │          │   ├── alert.component.html
+ │ │          │   ├── alert.component.spec.ts
+ │ │          │   └── alert.component.ts
+ │ │          ├── confirm
+ │ │          │   ├── confirm.component.css
+ │ │          │   ├── confirm.component.html
+ │ │          │   ├── confirm.component.spec.ts
+ │ │          │   └── confirm.component.ts
+ │ │          └── ...
+ │ │
  │ ├── feature1
  │ │     ├── feature1.component.css
  │ │     ├── feature1.component.html
@@ -80,6 +108,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
  │ │    |    ├── {feature2}.selectors.ts
  │ │    |    ├── {feature2}.state.ts
  │ │    |    └── {feature2}.module.ts
+ │ │    └── ...
  ├── assets
  ├── environments
  │ ├── environment.prod.ts
@@ -89,4 +118,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
  ├── polyfills.ts
  ├── styles.css
  ├── test.ts
+ ...
 ```

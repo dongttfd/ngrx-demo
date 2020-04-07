@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+    production: false,
+    tokenAPI: 'KcD1drjIBAaKUJTI2VCQ_EKVBN4FOl4b98cy'
 };
