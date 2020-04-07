@@ -42,27 +42,27 @@ export class UserEffects {
         ))
     ));
 
-    // postUser$ = createEffect(() => this.actions$.pipe(
-    //     ofType(createUser),
-    //     mergeMap(action => this.userService.createUser(action.user).pipe(
-    //         map(response => {
-    //             if (response._meta.success) {
-    //                 return createdUserSuccess({ user: response.result });
-    //             }
-
-    //             return createdUserFail({
-    //                 user: action.user,
-    //                 message: response._meta.message,
-    //                 errors: response.result
-    //             });
-    //         })
-    //     ))
-    // ));
-
     postUser$ = createEffect(() => this.actions$.pipe(
         ofType(createUser),
-        mergeMap(action => of(createdUserSuccess({ user: action.user })))
+        mergeMap(action => this.userService.createUser(action.user).pipe(
+            map(response => {
+                if (response._meta.success) {
+                    return createdUserSuccess({ user: response.result });
+                }
+
+                return createdUserFail({
+                    user: action.user,
+                    message: response._meta.message,
+                    errors: response.result
+                });
+            })
+        ))
     ));
+
+    // postUser$ = createEffect(() => this.actions$.pipe(
+    //     ofType(createUser),
+    //     mergeMap(action => of(createdUserSuccess({ user: action.user })))
+    // ));
 
     putUser$ = createEffect(() => this.actions$.pipe(
         ofType(editUser),

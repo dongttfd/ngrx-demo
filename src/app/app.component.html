@@ -1,11 +1,11 @@
 <div class="container">
-    <button class="btn btn-lg btn-outline-primary" (click)="openAlert()">Launch demo modal</button>
+    <!-- <button class="btn btn-sm btn-outline-primary" (click)="openAlert()">Launch demo modal</button> -->
     <ul ngbNav class="nav-tabs">
         <li ngbNavItem>
-            <a [routerLink]="['/user']" ngbNavLink>User</a>
+            <a routerLink="user" routerLinkActive="active" class="nav-link">User</a>
         </li>
         <li ngbNavItem>
-            <a [routerLink]="['/book']" ngbNavLink>Book</a>
+            <a routerLink="book" routerLinkActive="active" class="nav-link">Book</a>
         </li>
     </ul>
     <div>
