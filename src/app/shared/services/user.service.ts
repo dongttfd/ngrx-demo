@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserResponse } from '../models';
+import { UserListResponse, User, UserCreatedResponse } from '../models';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
 
-    API = 'https://gorest.co.in/public-api/users?access-token=nciWEkNM9dIYgappAxvnh9zSQeyRFA05TXOS';
+    API = 'https://gorest.co.in/public-api/users?_format=json';
 
     constructor(private httpClient: HttpClient) { }
 
-    getUsers(): Observable<UserResponse> {
-        return this.httpClient.get<UserResponse>(this.API);
+    getUsers(): Observable<UserListResponse> {
+        return this.httpClient.get<UserListResponse>(this.API);
+    }
+
+    createUser(user: User): Observable<UserCreatedResponse> {
+        return this.httpClient.post<UserCreatedResponse>(this.API, user);
     }
 }

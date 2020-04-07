@@ -1,2 +1,14 @@
-<button class="btn btn-lg btn-outline-primary" (click)="openAlert()">Launch demo modal</button>
-<router-outlet></router-outlet>
+<div class="container">
+    <!-- <button class="btn btn-lg btn-outline-primary" (click)="openAlert()">Launch demo modal</button> -->
+    <ul ngbNav class="nav-tabs">
+        <li ngbNavItem>
+            <a [routerLink]="['/user']" ngbNavLink>User</a>
+        </li>
+        <li ngbNavItem>
+            <a [routerLink]="['/book']" ngbNavLink>Book</a>
+        </li>
+    </ul>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
