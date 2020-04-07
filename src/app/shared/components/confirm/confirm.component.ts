@@ -2,23 +2,25 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
-import { AlertModalStoreState, AlertModalStoreActions, RootStoreState } from 'src/app/store';
+import { ConfirmModalStoreState, RootStoreState, ConfirmModalStoreActions } from 'src/app/store';
+
 
 @Component({
-    selector: 'app-alert',
-    templateUrl: './alert.component.html',
-    styleUrls: ['./alert.component.css']
+    selector: 'app-confirm',
+    templateUrl: './confirm.component.html',
+    styleUrls: ['./confirm.component.scss']
 })
-export class AlertComponent implements OnInit, OnDestroy {
+export class ConfirmComponent implements OnInit, OnDestroy {
 
-    modalState$: Observable<AlertModalStoreState.AlertModalState>;
     subscription = new Subscription();
+
+    modalState$: Observable<ConfirmModalStoreState.ConfirmModalState>;
 
     constructor(
         private store: Store<RootStoreState.StateMap>,
         private activeModal: NgbActiveModal
     ) {
-        this.modalState$ = this.store.pipe(select(AlertModalStoreState.modalFeatureKey));
+        this.modalState$ = this.store.pipe(select(ConfirmModalStoreState.modalFeatureKey));
     }
 
     ngOnInit(): void {
@@ -33,7 +35,15 @@ export class AlertComponent implements OnInit, OnDestroy {
     }
 
     closeModal() {
-        this.store.dispatch(AlertModalStoreActions.closeModal());
+        this.store.dispatch(
+            ConfirmModalStoreActions.closeConfirmModal({ closeWith: ConfirmModalStoreState.CANCLE })
+        );
+    }
+
+    handleClickOk() {
+        this.store.dispatch(
+            ConfirmModalStoreActions.closeConfirmModal({ closeWith: ConfirmModalStoreState.AGREE })
+        );
     }
 
     ngOnDestroy() {

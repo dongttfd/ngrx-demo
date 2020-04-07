@@ -26,7 +26,7 @@ export const initialState: UserState = {
     errors: null
 };
 
-export const mapCreatedErrors = (message: string, errors: FieldError[]) => {
+export const mapResponseErrors = (message: string, errors: FieldError[]) => {
     const error = {
         message,
         fields: {

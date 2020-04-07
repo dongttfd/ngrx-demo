@@ -1,15 +1,15 @@
 import { Alert } from 'src/app/shared/models';
 
-export const modalFeatureKey = 'modal';
+export const modalFeatureKey = 'alert-modal';
 
 export interface AlertModalState {
     isOpened: boolean;
-    alertModel: Alert;
+    alert: Alert;
 }
 
 export const initialState: AlertModalState = {
     isOpened: false,
-    alertModel: {
+    alert: {
         title: '',
         content: ''
     }

@@ -1,14 +1,14 @@
 <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">
-        {{(this.modalState$ | async)?.alertModel?.title}}
+        {{(this.modalState$ | async)?.alert?.title}}
     </h4>
     <button type="button" class="close" aria-label="Close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <p> {{(this.modalState$ | async)?.alertModel?.content}} </p>
+    <p> {{(this.modalState$ | async)?.alert?.content}} </p>
 </div>
 <div class="modal-footer">
-    <button (click)="closeModal()" type="button" class="btn btn-outline-dark">Save</button>
+    <button (click)="closeModal()" type="button" class="btn btn-outline-dark">close</button>
 </div>

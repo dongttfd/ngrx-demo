@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">User</h4>
+    <h4 class="modal-title" id="modal-basic-title">Profile of: {{ user.first_name || 'User' }}</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -52,7 +52,7 @@
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input [(ngModel)]="user.phone" name="phone" id="phone" type="number" class="form-control">
+            <input [(ngModel)]="user.phone" name="phone" id="phone" type="string" class="form-control">
         </div>
     </form>
 </div>

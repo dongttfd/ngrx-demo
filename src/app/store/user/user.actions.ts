@@ -9,12 +9,16 @@ export enum UserActionTypes {
     ResetUserErrors = '[User] Reset Errors',
 
     CreateUser = '[User] Create User',
-    CreateUserSuccess = '[User] Created User Success',
-    CreateUserFail = '[User] Created User Fail',
+    CreatedUserSuccess = '[User] Created User Success',
+    CreatedUserFail = '[User] Created User Fail',
 
-    // EditUser = '[User] Edit User',
-    // EditedUserSuccess = '[User] Edited User Success',
-    // EditedUserFail = '[User] Edited User Fail',
+    EditUser = '[User] Edit User',
+    EditedUserSuccess = '[User] Edited User Success',
+    EditedUserFail = '[User] Edited User Fail',
+
+    DeleteUser = '[User] Delete User',
+    DeletedUserSuccess = '[User] Deleted User Success',
+    DeletedUserFail = '[User] Deleted User Fail',
 }
 
 export const loadUsers = createAction(
@@ -35,27 +39,38 @@ export const createUser = createAction(
     props<{ user: User }>()
 );
 
-export const createUserSuccess = createAction(
-    UserActionTypes.CreateUserSuccess,
+export const createdUserSuccess = createAction(
+    UserActionTypes.CreatedUserSuccess,
     props<{ user: User }>()
 );
 
-export const createUserFail = createAction(
-    UserActionTypes.CreateUserFail,
+export const createdUserFail = createAction(
+    UserActionTypes.CreatedUserFail,
     props<{ user: User, message: string, errors: FieldError[] }>()
 );
 
-// export const editUser = createAction(
-//     UserActionTypes.EditUser,
-//     props<{ user: User }>()
-// );
+export const editUser = createAction(
+    UserActionTypes.EditUser,
+    props<{ user: User }>()
+);
 
-// export const editedUserSuccess = createAction(
-//     UserActionTypes.EditedUserSuccess,
-//     props<{ user: User }>()
-// );
+export const editedUserSuccess = createAction(
+    UserActionTypes.EditedUserSuccess,
+    props<{ user: User }>()
+);
 
-// export const editedUserFail = createAction(
-//     UserActionTypes.EditedUserFail,
-//     props<{ user: User, message: string, errors: FieldError[] }>()
-// );
+export const editedUserFail = createAction(
+    UserActionTypes.EditedUserFail,
+    props<{ user: User, message: string, errors: FieldError[] }>()
+);
+
+export const deleteUser = createAction(
+    UserActionTypes.DeleteUser,
+    props<{ user: User }>()
+);
+
+export const deletedUserSuccess = createAction(
+    UserActionTypes.DeletedUserSuccess,
+    props<{ user: User }>()
+);
+

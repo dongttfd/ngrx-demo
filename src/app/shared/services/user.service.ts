@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserListResponse, User, UserCreatedResponse } from '../models';
+import { UserListResponse, User, UserResponse, BaseResponse } from '../models';
 
 @Injectable({
     providedIn: 'root'
@@ -16,7 +16,18 @@ export class UserService {
         return this.httpClient.get<UserListResponse>(this.API);
     }
 
-    createUser(user: User): Observable<UserCreatedResponse> {
-        return this.httpClient.post<UserCreatedResponse>(this.API, user);
+    createUser(user: User): Observable<UserResponse> {
+        return this.httpClient.post<UserResponse>(this.API, user);
+    }
+
+    editUser(user: User): Observable<UserResponse> {
+        return this.httpClient.put<UserResponse>(
+            `https://gorest.co.in/public-api/users/${user.id}`,
+            user
+        );
+    }
+
+    deleteUser(userId: string): Observable<BaseResponse> {
+        return this.httpClient.delete<BaseResponse>(`https://gorest.co.in/public-api/users/${userId}`);
     }
 }
