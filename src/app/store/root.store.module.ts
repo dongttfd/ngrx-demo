@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 
 import { rootReducersMap, metaReducers } from './root.state';
 import { UserStoreModule } from './user';
+import { BookStoreModule } from './book';
 
 @NgModule({
     declarations: [],
@@ -27,6 +28,7 @@ import { UserStoreModule } from './user';
 
         StoreRouterConnectingModule.forRoot(),
         UserStoreModule,
+        BookStoreModule
     ]
 })
 export class RootStoreModule { }

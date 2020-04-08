@@ -1,1 +1,3 @@
-export { UserService } from './user.service';
+export * from './data';
+export * from './user.service';
+export * from './book.service';

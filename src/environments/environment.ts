@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    tokenAPI: 'KcD1drjIBAaKUJTI2VCQ_EKVBN4FOl4b98cy'
+    tokenAPI: 'uAo9Hd2x_UcfRVcjicrnLWIlCszBrmM3Hs2k'
 };
 
 /*
