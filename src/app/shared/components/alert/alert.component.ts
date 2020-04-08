@@ -23,7 +23,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const subscription = this.modalState$.subscribe(state => {
-            console.log(state);
             if (!state.isOpened) {
                 this.activeModal.close();
             }

@@ -5,7 +5,7 @@ import { BookComponent } from './book/book.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'user', pathMatch: 'full' },
+    { path: '', redirectTo: 'book', pathMatch: 'full' },
     {
         path: 'user', component: UserComponent
     },

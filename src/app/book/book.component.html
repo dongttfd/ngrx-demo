@@ -1,1 +1,27 @@
-<p>book works!</p>
+<div class="card">
+    <div class="card-header">
+        <h4>Book Table</h4>
+        <div class="text-right">
+            <button class="btn btn-sm btn-success" (click)="generateBook()">Generate Book</button>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of books$ | async">
+                <th scope="row">{{ book.id }}</th>
+                <td> {{ book.name }} </td>
+                <td class="td-option">
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="toDelete(book.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

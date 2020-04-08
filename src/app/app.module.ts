@@ -9,6 +9,8 @@ import { RootStoreModule } from './store';
 import { RequestInterceptor } from './core/request.interceptor';
 import { UserModule } from './user/user.module';
 import { BookModule } from './book/book.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BookDataService } from './shared/services';
 
 @NgModule({
     declarations: [
@@ -17,6 +19,8 @@ import { BookModule } from './book/book.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientInMemoryWebApiModule
+            .forRoot(BookDataService, { dataEncapsulation: false, delay: 200 }),
 
         RootStoreModule,
         SharedModule,

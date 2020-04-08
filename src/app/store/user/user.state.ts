@@ -1,6 +1,6 @@
 import { User } from 'src/app/shared/models/user.model';
 
-export const userFeatureKey = 'userFeature';
+export const userFeatureKey = 'users';
 
 export interface FieldError {
     field: string;

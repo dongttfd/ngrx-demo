@@ -51,7 +51,6 @@ const reducer = createReducer(
     on(deletedUserSuccess, (userState, { user }) => {
         const newUsers = [...userState.users].filter(u => u.id !== user.id);
 
-        console.log(userState.users, user);
         return { ...userState, users: newUsers};
     }),
 );

@@ -8,7 +8,7 @@ import { UserListResponse, User, UserResponse, BaseResponse } from '../models';
 })
 export class UserService {
 
-    API = 'https://gorest.co.in/public-api/users?_format=json';
+    API = 'https://gorest.co.in/public-api/users?_format=json&access-token=uAo9Hd2x_UcfRVcjicrnLWIlCszBrmM3Hs2k';
 
     constructor(private httpClient: HttpClient) { }
 
