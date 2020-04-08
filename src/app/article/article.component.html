@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+        <h4>Article Table</h4>
+        <div class="text-right">
+            <button class="btn btn-sm btn-success" (click)="generateArticle()">Generate Article</button>
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let article of articles$ | async">
+                <th scope="row">{{ article.id }}</th>
+                <td> {{ article.title }} </td>
+                <td> {{ article.content }} </td>
+                <td class="td-option">
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                    <button class="btn btn-sm btn-danger" (click)="toDelete(article.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

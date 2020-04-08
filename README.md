@@ -23,7 +23,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 
-## API config
+## API config test
+
+### For user router (`/user`) => (fix 404)
 
 Using test api in [Online REST API for Testing](https://gorest.co.in/)
 
@@ -34,6 +36,22 @@ export const environment = {
     ...
     tokenAPI: <your-token>
 };
+```
+
+Command this code at `app.module.ts`
+
+```
+    HttpClientInMemoryWebApiModule
+        .forRoot(DataService, { dataEncapsulation: false, delay: 200 }),
+```
+
+### For book router (`/book`) and article router (`/article`)
+
+Open this codoe at `app.module.ts`
+
+```
+    HttpClientInMemoryWebApiModule
+        .forRoot(DataService, { dataEncapsulation: false, delay: 200 }),
 ```
 
 ## Folder structure
