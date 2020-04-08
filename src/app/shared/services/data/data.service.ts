@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Book } from 'src/app/shared/models';
+import { Book, Article } from 'src/app/shared/models';
 
 @Injectable({
     providedIn: 'root'
 })
-export class BookDataService implements InMemoryDbService {
+export class DataService implements InMemoryDbService {
 
     createDb() {
         const books: Book[] = [
@@ -21,7 +21,12 @@ export class BookDataService implements InMemoryDbService {
             { id: 20, name: 'Tornado' }
         ];
 
-        return { books };
+        const articles: Article[] = [
+            { id: 11, title: 'Dr Nice', content: 's' },
+            { id: 12, title: 'Dr Nice', content: 's' },
+        ];
+
+        return { books, articles };
     }
 
     genId(books: Book[]): number {

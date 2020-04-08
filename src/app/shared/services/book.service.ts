@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { BookDataService } from './data';
 import { Book } from 'src/app/shared/models';
 
 @Injectable({

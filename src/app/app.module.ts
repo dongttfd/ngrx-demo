@@ -10,7 +10,8 @@ import { RequestInterceptor } from './core/request.interceptor';
 import { UserModule } from './user/user.module';
 import { BookModule } from './book/book.module';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { BookDataService } from './shared/services';
+import { DataService } from './shared/services';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
     declarations: [
@@ -20,12 +21,13 @@ import { BookDataService } from './shared/services';
         BrowserModule,
         AppRoutingModule,
         HttpClientInMemoryWebApiModule
-            .forRoot(BookDataService, { dataEncapsulation: false, delay: 200 }),
+            .forRoot(DataService, { dataEncapsulation: false, delay: 200 }),
 
         RootStoreModule,
         SharedModule,
         UserModule,
         BookModule,
+        ArticleModule,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
